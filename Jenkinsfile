@@ -14,7 +14,7 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     // sh "docker login ${artifacturl} --username $USERNAME --password $PASSWORD"
-                    sh "cd guest-book/php-redis/"
+                    sh "cd guestbook/php-redis/"
                     sh "pwd"
                     sh "ls -ltr"
                     sh "docker image build -t ${image} ."
