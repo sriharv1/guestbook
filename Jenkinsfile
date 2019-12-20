@@ -18,7 +18,7 @@ pipeline {
                     sh "ls -ltr"
                     sh "cd php-redis/"
                     sh "ls -ltr"
-                    sh "docker image build -t ${image} -f php-redis/Dockerfile"
+                    sh "docker image build -t ${image} -f php-redis/Dockerfile ."
                     sh "docker tag ${image} ${fullPath}"
                     sh "docker push ${fullPath}"
                 }
