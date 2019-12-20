@@ -13,16 +13,17 @@ pipeline {
         stage('BUILD'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    // sh "docker login ${artifacturl} --username $USERNAME --password $PASSWORD"
-                    dir("php-redis") {
-                    sh "pwd"
-                    sh "ls -ltr"
-                    sh "docker image build -t ${image} -f php-redis/Dockerfile ."
-                    sh "docker tag ${image} ${fullPath}"
-                    sh "docker push ${fullPath}"
-                  }
+                    dir('php-redis') {
+                        sh "pwd"
+                        sh "ls -ltr"
+                        sh "docker image build -t ${image} ."
+                        sh "docker tag ${image} ${fullPath}"
+                        sh "docker push ${fullPath}"
+                        // sh "docker login ${artifacturl} --username $USERNAME --password $PASSWORD"
+                    }
                 }
             }
         }
     }  
 }
+
