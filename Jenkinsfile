@@ -16,7 +16,7 @@ pipeline {
                     // sh "docker login ${artifacturl} --username $USERNAME --password $PASSWORD"
                     sh "pwd"
                     sh "ls -ltr"
-                    sh "cd php-redis/"
+                    sh "cd 'php-redis'"
                     sh "ls -ltr"
                     sh "docker image build -t ${image} -f php-redis/Dockerfile ."
                     sh "docker tag ${image} ${fullPath}"
