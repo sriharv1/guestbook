@@ -26,7 +26,7 @@ pipeline {
         }
     }
     post { 
-        success { 
+        always { 
             echo 'I will always say Hello again!'
         }
         failure {
