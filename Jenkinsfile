@@ -17,6 +17,7 @@ pipeline {
                     sh "pwd"
                     sh "ls -ltr"
                     sh "cd php-redis/"
+                    sh "ls -ltr"
                     sh "docker image build -t ${image} ."
                     sh "docker tag ${image} ${fullPath}"
                     sh "docker push ${fullPath}"
